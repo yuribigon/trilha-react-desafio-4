@@ -18,6 +18,12 @@ const schema = yup
   .required();
 
 const Login = () => {
+
+  const handleLogin = () => {
+    console.log('Login realizado');
+    alert('Login realizado');
+  }
+
   const {
     control,
     formState: { errors, isValid },
@@ -49,7 +55,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" disabled={!isValid} onClick={handleLogin}/>
         </Column>
       </LoginContainer>
     </Container>
